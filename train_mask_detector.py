@@ -1,7 +1,7 @@
 # USAGE
-# python train_mask_detector.py --dataset dataset
-
+# python train_mask_detector.py (dataset)
 # import the necessary packages
+
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.applications import MobileNetV2
 from tensorflow.keras.layers import AveragePooling2D
@@ -21,11 +21,10 @@ from sklearn.metrics import classification_report
 from imutils import paths
 import matplotlib.pyplot as plt
 import numpy as np
-import argparse
 import os
 
-# construct the argument parser and parse the arguments
-dataset=r'C:\Users\ACER\Desktop\Covid19-Face-Mask-Detector-master\dataset'
+
+dataset=r'C:\Users\ACER\Face-Mask-Detector\dataset'
 imagePaths=list(paths.list_images(dataset))
 imagePaths
 # initialize the initial learning rate, number of epochs to train for,
@@ -130,7 +129,7 @@ print(classification_report(testY.argmax(axis=1), predIdxs,
 
 # serialize the model to disk
 print("[INFO] saving mask detector model...")
-model.save(r'C:\Users\Acer\Desktop\Covid19-Face-Mask-Detector-master\mask_detector1.model')
+model.save(r'C:\Users\Acer\Face-Mask-Detector\mask_detector1.model')
 
 # plot the training loss and accuracy
 N = EPOCHS
@@ -144,4 +143,4 @@ plt.title("Training Loss and Accuracy")
 plt.xlabel("Epoch #")
 plt.ylabel("Loss/Accuracy")
 plt.legend(loc="lower left")
-plt.savefig(r'C:\Users\Acer\Desktop\Covid19-Face-Mask-Detector-master\plot_v2.png')
+plt.savefig(r'C:\Users\Acer\Face-Mask-Detector\plot_v2.png')

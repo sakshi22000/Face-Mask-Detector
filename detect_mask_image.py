@@ -6,7 +6,6 @@ from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
 from tensorflow.keras.preprocessing.image import img_to_array
 from tensorflow.keras.models import load_model
 import numpy as np
-import argparse
 import cv2
 import os
 
@@ -16,18 +15,18 @@ import os
 
 # load our serialized face detector model from disk
 print("[INFO] loading face detector model...")
-prototxtPath=os.path.sep.join([r'C:\Users\Acer\Desktop\Covid19-Face-Mask-Detector-master\face_detector','deploy.prototxt'])
-weightsPath=os.path.sep.join([r'C:\Users\Acer\Desktop\Covid19-Face-Mask-Detector-master\face_detector','res10_300x300_ssd_iter_140000.caffemodel'])
+prototxtPath=os.path.sep.join([r'C:\Users\ACER\Face-Mask-Detector\face_detector','deploy.prototxt'])
+weightsPath=os.path.sep.join([r'C:\Users\Acer\Face-Mask-Detector\face_detector','res10_300x300_ssd_iter_140000.caffemodel'])
 prototxtPath
 weightsPath
 net=cv2.dnn.readNet(prototxtPath,weightsPath)
 # load the face mask detector model from disk
 print("[INFO] loading face mask detector model...")
-model=load_model(r'C:\Users\Acer\Desktop\Covid19-Face-Mask-Detector-master\mask_detector1.model')
+model=load_model(r'C:\Users\ACER\Face-Mask-Detector\mask_detector.model')
 
 # load the input image from disk, clone it, and grab the image spatial
 # dimensions
-image=cv2.imread(r'C:\Users\Acer\Desktop\Covid19-Face-Mask-Detector-master\examples\example_01.png')
+image=cv2.imread(r'C:\Users\Acer\Face-Mask-Detector\example\Virat-Kohli.jpg')
 orig = image.copy()
 (h, w) = image.shape[:2]
 (h,w)

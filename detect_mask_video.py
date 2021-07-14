@@ -6,7 +6,6 @@ from tensorflow.keras.preprocessing.image import img_to_array
 from tensorflow.keras.models import load_model
 from imutils.video import VideoStream
 import numpy as np
-import argparse
 import imutils
 import time
 import cv2
@@ -76,13 +75,13 @@ def detect_and_predict_mask(frame, faceNet, maskNet):
 
 # load our serialized face detector model from disk
 print("[INFO] loading face detector model...")
-prototxtPath=os.path.sep.join([r'C:\Users\ACER\Desktop\Covid19-Face-Mask-Detector-master\face_detector','deploy.prototxt'])
-weightsPath=os.path.sep.join([r'C:\Users\ACER\Desktop\Covid19-Face-Mask-Detector-master\face_detector','res10_300x300_ssd_iter_140000.caffemodel'])
+prototxtPath=os.path.sep.join([r'C:\Users\ACER\Face-Mask-Detector\face_detector','deploy.prototxt'])
+weightsPath=os.path.sep.join([r'C:\Users\ACER\Face-Mask-Detector\face_detector','res10_300x300_ssd_iter_140000.caffemodel'])
 faceNet = cv2.dnn.readNet(prototxtPath, weightsPath)
 
 # load the face mask detector model from disk
 print("[INFO] loading face mask detector model...")
-maskNet=load_model(r'C:\Users\ACER\Desktop\Covid19-Face-Mask-Detector-master\mask_detector.model')
+maskNet=load_model(r'C:\Users\ACER\Face-Mask-Detector\mask_detector.model')
 
 # initialize the video stream and allow the camera sensor to warm up
 print("[INFO] starting video stream...")
